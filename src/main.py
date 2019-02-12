@@ -26,7 +26,7 @@ def main():
     # register handlers/functions
     dispatcher.add_handler(CommandHandler('owo', owo_command))
     dispatcher.add_handler(CommandHandler('meme', meme))
-    dispatcher.add_handler(CommandHandler('porn', porn))
+    dispatcher.add_handler(CommandHandler('porn', image))
 
     # MessageHandler
     dispatcher.add_handler(RegexHandler(re.compile("owo", re.IGNORECASE), owo))
@@ -55,7 +55,7 @@ def meme(bot, update):
     update.message.reply_text(link)
 
 
-def porn(bot, update):
+def image(bot, update):
     myImage = Image.open("https://d.facdn.net/art/meheheehehe/1548275203/1548275203.meheheehehe_79.jpg")
     update.message.reply_text(myImage)
 
