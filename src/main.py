@@ -26,7 +26,7 @@ def main():
     # register handlers/functions
     dispatcher.add_handler(CommandHandler('owo', owo_command))
     dispatcher.add_handler(CommandHandler('meme', meme))
-    dispatcher.add_handler(CommandHandler('porn', image))
+    dispatcher.add_handler(CommandHandler('image', image))
 
     # MessageHandler
     dispatcher.add_handler(RegexHandler(re.compile("owo", re.IGNORECASE), owo))
