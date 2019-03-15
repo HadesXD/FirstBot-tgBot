@@ -1,26 +1,38 @@
 # Import regex
 import re
-# Importing the logging.
+# Importing the logging (prints to console).
 import logging
 import random
+from PIL import Image
+import os
+import json
 # importing the updater from the python-telegram-bot library.
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters, RegexHandler
-from PIL import Image
 
 # setting up the logger.
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO)
 logger = logging.getLogger(__name__)
 # declare an updater variable as NULL.
 updater = None
+config = None
 
-# the telegram tokken (note: import via file)
-token = "793027805:AAFP4_GRAX86K-RkabVuAwRN4MynoC4ov1U"
+
+# the telegram token (note: import via file)
+# load config from file
+def load_config():
+    dir = os.path.dirname(__file__)
+    path = os.path.join(dir, 'token.json')
+    with open(path) as config_file:
+        global config
+        config = json.load(config_file)
+        config_file.close()
 
 
 def main():
     print("Starting bot...", end='')
+    load_config()
     global updater
-    updater = Updater(token)
+    updater = Updater(config["token"])
     dispatcher = updater.dispatcher
 
     # register handlers/functions
@@ -29,7 +41,8 @@ def main():
     dispatcher.add_handler(CommandHandler('image', image))
 
     # MessageHandler
-    dispatcher.add_handler(RegexHandler(re.compile("owo", re.IGNORECASE), owo))
+    dispatcher.add_handler(RegexHandler(re.compile("owo", re.IGNORECASE), owo_command))
+    dispatcher.add_handler(MessageHandler(Filters.photo, image_received))
 
     # register error handler
     dispatcher.add_error_handler(error)
@@ -56,8 +69,14 @@ def meme(bot, update):
 
 
 def image(bot, update):
-    myImage = Image.open("https://d.facdn.net/art/meheheehehe/1548275203/1548275203.meheheehehe_79.jpg")
-    update.message.reply_text(myImage)
+    # myImage = Image.open("https://d.facdn.net/art/meheheehehe/1548275203/1548275203.meheheehehe_79.jpg")
+    file = open("")
+    update.message.reply_photo("AgADBAADE7AxGzXLWVB7eLaPCkE1KvtlwxoABHWQqs-nYXtCMQ4FAAEC")
+
+
+def image_received(bot, update):
+    message = update.message
+    message.reply_text(message.photo[-1].file_id)
 
 
 # logs bot errors thrown
