@@ -69,7 +69,6 @@ def meme(bot, update):
 
 
 def image(bot, update):
-    # myImage = Image.open("https://d.facdn.net/art/meheheehehe/1548275203/1548275203.meheheehehe_79.jpg")
     file = open("")
     update.message.reply_photo("AgADBAADE7AxGzXLWVB7eLaPCkE1KvtlwxoABHWQqs-nYXtCMQ4FAAEC")
 
