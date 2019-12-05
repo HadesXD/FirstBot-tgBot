@@ -1,11 +1,7 @@
 # Telegram Testbot - Python
-I wanna find a way to be better at Python, while also making a bot for my favourite social app Telegram. <br/>
-So making a starter bot seems like a good idea. <br/>
+I wanted to try creating a bot within the Telegram social app. This is under heavy development still.
 
-<b>Used:</b>
-- language: Python
-- Framework: TelegramBot
-- IDE: PyCharm
-
-<b>To Do:</b>
-- lots of updates
+<ul>
+  <li><b>Language:<b/> Python</li>
+  <li><b>IDE:<b/> PyCharm</li>
+</ul>
