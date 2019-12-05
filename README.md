@@ -1,4 +1,4 @@
-# FirstBot-tgBot
+# Telegram Testbot - Python
 I wanna find a way to be better at Python, while also making a bot for my favourite social app Telegram. <br/>
 So making a starter bot seems like a good idea. <br/>
 
